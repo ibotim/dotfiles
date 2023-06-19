@@ -1,5 +1,5 @@
-# Install zsh, curl
-apt install zsh curl
+# Install zsh, curl, git
+apt install zsh curl git -y
 
 # Install oh_my_zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
