@@ -8,7 +8,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 rm $HOME/.zshrc
 
 # Install PowerLevel10k
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+git clone https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
 
 # Clone dotfiles as bare repository and checkout 
 git clone --bare https://github.com/ibotim/dotfiles $HOME/dotfiles
