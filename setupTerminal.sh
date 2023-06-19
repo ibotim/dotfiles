@@ -1,3 +1,6 @@
+# use following command to install
+# curl -s https://raw.githubusercontent.com/ibotim/dotfiles/master/setupTerminal.sh | bash
+
 # Install zsh, curl, git
 apt install zsh curl git -y
 
