@@ -19,3 +19,6 @@ git --git-dir=$HOME/dotfiles/ --work-tree=$HOME checkout
 
 # Change default shell to zsh
 chsh -s $(which zsh)
+
+# Run zsh
+zsh
