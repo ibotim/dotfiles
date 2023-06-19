@@ -21,4 +21,4 @@ git --git-dir=$HOME/dotfiles/ --work-tree=$HOME checkout
 chsh -s $(which zsh)
 
 # Run zsh
-zsh
+zsh -i
