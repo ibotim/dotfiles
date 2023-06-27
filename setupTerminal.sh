@@ -2,7 +2,7 @@
 # curl -s https://raw.githubusercontent.com/ibotim/dotfiles/master/setupTerminal.sh | bash
 
 # Install zsh, curl, git
-apt install zsh curl git -y
+#apt install zsh curl git -y
 
 # Install oh_my_zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
