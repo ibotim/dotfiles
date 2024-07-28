@@ -109,6 +109,10 @@ source $ZSH/oh-my-zsh.sh
 alias ll="ls -l"
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
+# import aliases
+if [ -f ~/.config/custom/aliases ]; then
+    source ~/.config/custom/aliases
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
