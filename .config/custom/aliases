@@ -1,3 +1,38 @@
-alias 'ctfr'='docker run --volume='$HOME/repos/ctfcontainer/wordlists:/wordlists:ro' --volume='$HOME/repos/ctfcontainer/vpn:/vpn:ro' --volume='$HOME/repos/ctfcontainer/ctf:/ctf:rw' -it ctf'
 alias 'dstart'='sudo service docker start'
 alias 'dstop'='sudo service docker stop'
+
+alias 'ctfb'='docker build -t ctf $HOME/repos/ctfcontainer'
+alias 'ctfe'='code $HOME/repos/ctfcontainer/Dockerfile'
+
+# Add the ctf function
+ctf() {
+  # Check if the container named 'ctf' exists
+  if [ "$(docker ps -aq -f name=^/ctf$)" ]; then
+    # Check if the container is running
+    if [ "$(docker ps -q -f name=^/ctf$)" ]; then
+      echo "Attaching to the running container 'ctf'..."
+      docker exec -it ctf /bin/bash
+    else
+      echo "Starting the existing container 'ctf'..."
+      docker start ctf
+      docker exec -it ctf /bin/bash
+    fi
+  else
+    echo "Creating and starting a new container 'ctf'..."
+    docker run --volume="$HOME/repos/ctfcontainer/wordlists:/wordlists:ro" \
+               --volume="$HOME/repos/ctfcontainer/vpn:/vpn:ro" \
+               --volume="$HOME/repos/ctfcontainer/ctf:/ctf:rw" \
+               -it --name="ctf" ctf
+  fi
+}
+
+# Add the ctfr function
+ctfr() {
+  # Check if the container named 'ctf' exists
+  if [ "$(docker ps -aq -f name=^/ctf$)" ]; then
+    echo "Removing the container 'ctf'..."
+    docker rm -f ctf
+  else
+    echo "No container named 'ctf' exists."
+  fi
+}
