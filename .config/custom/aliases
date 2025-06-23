@@ -19,7 +19,9 @@ ctf() {
     fi
   else
     echo "Creating and starting a new container 'ctf'..."
-    docker run --volume="$HOME/repos/ctfcontainer/wordlists:/wordlists:ro" \
+    docker run --device=/dev/net/tun
+               --cap-add=NET_ADMIN
+               --volume="$HOME/repos/ctfcontainer/wordlists:/wordlists:ro" \
                --volume="$HOME/repos/ctfcontainer/vpn:/vpn:ro" \
                --volume="$HOME/repos/ctfcontainer/ctf:/ctf:rw" \
                -it --name="ctf" ctf
